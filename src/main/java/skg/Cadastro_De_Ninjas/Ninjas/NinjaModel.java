@@ -1,6 +1,8 @@
-package skg.Cadastro_De_Ninjas;
+package skg.Cadastro_De_Ninjas.Ninjas;
 
 import jakarta.persistence.*;
+import skg.Cadastro_De_Ninjas.Missoes.MissoesModel;
+
 
 //Entity transforma uma classe em uma Entidade no Banco de dados
 @Entity
@@ -12,6 +14,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    // @ManyToOne um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")// foreing key ou chave estrantgeira
+    private MissoesModel missoesModel;
 
     public NinjaModel() {
     }
